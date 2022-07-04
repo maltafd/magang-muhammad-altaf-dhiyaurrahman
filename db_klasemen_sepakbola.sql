@@ -1,0 +1,110 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 04 Jul 2022 pada 02.19
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 8.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_klasemen_sepakbola`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_klasemen`
+--
+
+CREATE TABLE `data_klasemen` (
+  `id` int(11) NOT NULL,
+  `nama_team` varchar(255) NOT NULL,
+  `logo_team` text NOT NULL,
+  `main` int(11) NOT NULL,
+  `menang` int(11) NOT NULL,
+  `seri` int(11) NOT NULL,
+  `kalah` int(11) NOT NULL,
+  `goal` int(11) NOT NULL,
+  `kebobolan` int(11) NOT NULL,
+  `performa` varchar(20) DEFAULT NULL COMMENT '1 = menang, 2 = seri, 3 = kalah',
+  `score` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_klasemen`
+--
+
+INSERT INTO `data_klasemen` (`id`, `nama_team`, `logo_team`, `main`, `menang`, `seri`, `kalah`, `goal`, `kebobolan`, `performa`, `score`) VALUES
+(1, 'Manchester United', '62c20b673d517.png', 3, 0, 1, 2, 23, 35, '3,3,2', '4-15|7-8|12-12'),
+(3, 'Real Madrid', '62c20aeb49a54.png', 3, 2, 0, 1, 29, 17, '3,1,1', '0-12|14-2|15-3'),
+(8, 'persib', '62c20aae459f8.persib', 3, 3, 0, 0, 41, 6, '1,1,1', '12-0|14-2|15-4');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_users`
+--
+
+CREATE TABLE `data_users` (
+  `id` int(11) NOT NULL,
+  `nama_depan` varchar(255) NOT NULL,
+  `nama_belakang` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_users`
+--
+
+INSERT INTO `data_users` (`id`, `nama_depan`, `nama_belakang`, `username`, `email`, `password`) VALUES
+(4, 'altaf', 'altaf', 'altaf', 'altaf@gmail.com', '$2y$10$/Ny3pCtScxO1TqfgNJqpPuBowYAsktTgYnQODlpqPFz25GPUHvGW2');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `data_klasemen`
+--
+ALTER TABLE `data_klasemen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `data_users`
+--
+ALTER TABLE `data_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `data_klasemen`
+--
+ALTER TABLE `data_klasemen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_users`
+--
+ALTER TABLE `data_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
